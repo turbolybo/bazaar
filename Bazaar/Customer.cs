@@ -17,22 +17,27 @@ namespace Bazaar
 			CustomerBalance = balance;
 		}
 
-		public int buyItem(StoreItem item)
+		public int BuyItem(StoreItem item)
 		{
-			if(item.StoreItemPrice <= CustomerBalance)
+			// Check if customer have money and item is still available
+			if(item.StoreItemPrice <= CustomerBalance && item.StoreItemSold == false)
 			{
-				// Enough balance
-				Console.Write(CustomerName + " bought " + item.ToString());
+				// Enough balance and not sold
+				Console.Write("	" + CustomerName + " bought ");
+				Console.Write("[" + item.ToColor() + "]");
+				Console.ResetColor();
+				Console.Write(" for $ " + item.StoreItemPrice);
 
 				// Withdraw cash
 				CustomerBalance -= item.StoreItemPrice;
 				Console.WriteLine(" and now have balance: " + CustomerBalance);
+				item.StoreItemSold = true;
 				
 				return 0;
 			} else
 			{
-				// Not enough balance
-				Console.WriteLine(CustomerName + " tried purchasing " + item.StoreItemName + " but didn't have enough balance");
+				// Not enough balance or already sold
+				Console.WriteLine("	" + CustomerName + " tried purchasing " + item.StoreItemName + " but didn't have enough balance, or it was already sold.");
 				return 1;
 			}
 		}

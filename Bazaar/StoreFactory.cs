@@ -8,5 +8,10 @@ namespace Bazaar
 {
 	class StoreFactory
 	{
+		public StoreFactory()
+		{
+			
+		}
+		
 	}
 }

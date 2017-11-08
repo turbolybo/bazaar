@@ -11,24 +11,18 @@ namespace Bazaar
 		public string StoreItemName { get; private set; }
 		public string StoreItemRarity { get; private set; }
 		public int StoreItemPrice{ get; private set; }
+		public bool StoreItemSold { get; set; }
 		public StoreItem(string name, string rarity, int price)
 		{
 			StoreItemName = name;
 			StoreItemRarity = rarity;
 			StoreItemPrice = price;
+			StoreItemSold = false;
+
+			ForSale();
 		}
 
-		public override string ToString()
-		{
-			string thisString = "";
-			thisString += "[" + ToColor(StoreItemName) + "]";
-			Console.ResetColor();
-			thisString += " for $" + StoreItemPrice + ".";
-			return thisString;
-
-		}
-
-		public string ToColor(string name)
+		public string ToColor()
 		{
 			if (StoreItemRarity == "Legendary")
 			{
@@ -43,9 +37,15 @@ namespace Bazaar
 			{
 				Console.ForegroundColor = ConsoleColor.White;
 			}
-				return name;
+			return StoreItemName;
 		}
 
+		public void ForSale()
+		{
+			Console.Write("[" + ToColor() + "]");
+			Console.ResetColor();
+			Console.WriteLine(" was put up for sale for $" + StoreItemPrice);
+		}
 	}
 	
 }
