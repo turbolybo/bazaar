@@ -22,6 +22,7 @@ namespace Bazaar
 			StoreItem spectral = new StoreItem("Swift Spectral Tiger", "Legendary", 50);
 			StoreItem test = new StoreItem("TCG", "Epic", 10);
 			StoreItem test2 = new StoreItem("Dildo", "Rare", 5);
+			spectral.printItemHelp();
 
 			// Create customers
 			Customer lyband = new Customer("Lyband", 100);

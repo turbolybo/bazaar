@@ -32,12 +32,31 @@ namespace Bazaar
 				Console.ForegroundColor = ConsoleColor.Magenta;
 			} else if (StoreItemRarity == "Rare")
 			{
-				Console.ForegroundColor = ConsoleColor.Blue;
+				Console.ForegroundColor = ConsoleColor.DarkCyan;
 			} else
 			{
 				Console.ForegroundColor = ConsoleColor.White;
 			}
 			return StoreItemName;
+		}
+		public void printItemHelp()
+		{
+			Console.WriteLine("\nItem rarities: ");
+
+			//Legendary
+			Console.ForegroundColor = ConsoleColor.Yellow;
+			Console.WriteLine("[Legendary]");
+			Console.ResetColor();
+
+			//Epic
+			Console.ForegroundColor = ConsoleColor.Magenta;
+			Console.WriteLine("[Epic]");
+			Console.ResetColor();
+
+			//Rare
+			Console.ForegroundColor = ConsoleColor.DarkCyan;
+			Console.WriteLine("[Rare]");
+			Console.ResetColor();
 		}
 
 		public void ForSale()

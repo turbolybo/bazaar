@@ -5,3 +5,10 @@ C:\Users\Andreas-PC\source\repos\bazaar\Bazaar\obj\Debug\Bazaar.csprojResolveAss
 C:\Users\Andreas-PC\source\repos\bazaar\Bazaar\obj\Debug\Bazaar.csproj.CoreCompileInputs.cache
 C:\Users\Andreas-PC\source\repos\bazaar\Bazaar\obj\Debug\Bazaar.exe
 C:\Users\Andreas-PC\source\repos\bazaar\Bazaar\obj\Debug\Bazaar.pdb
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\bin\Debug\Bazaar.exe.config
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\bin\Debug\Bazaar.exe
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\bin\Debug\Bazaar.pdb
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.csprojResolveAssemblyReference.cache
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.csproj.CoreCompileInputs.cache
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.exe
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.pdb
