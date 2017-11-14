@@ -12,3 +12,6 @@ C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.csprojResolveAsse
 C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.csproj.CoreCompileInputs.cache
 C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.exe
 C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\obj\Debug\Bazaar.pdb
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\bin\Debug\nunit.framework.dll
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\bin\Debug\nunit.mocks.dll
+C:\Users\andreas\Desktop\PG3300\bazaar\Bazaar\bin\Debug\nunit.framework.xml
