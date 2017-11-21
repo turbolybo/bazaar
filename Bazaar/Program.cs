@@ -41,11 +41,7 @@ namespace Bazaar
             customers.Add(santom);
             Customer lanalf = new Customer("lanalf", 100);
             customers.Add(lanalf);
-<<<<<<< HEAD
-            Customer SheikAlFenrik = new Customer("SheikAlFenrik", 100);
-            customers.Add(SheikAlFenrik);
-=======
->>>>>>> 55c2a92ac8b66da1cfa9f4b2eae8978878512181
+
             #endregion
 
             List<Customer> shuffledCustomers = ShuffleCustomerList(customers);
