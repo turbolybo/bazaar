@@ -27,12 +27,9 @@ namespace Bazaar
 		{
 			StoreName = name;
             List<StoreItem> storeItems = new List<StoreItem>();
-            StoreItem storeItem1 = new StoreItem("Swift Spectral Tiger", "Legendary", 100);
-            storeItems.Add(storeItem1);
-            StoreItem storeItem2 = new StoreItem("Hearthstone pack #1", "Rare", 50);
-            storeItems.Add(storeItem2);
-            StoreItem storeItem3 = new StoreItem("Hearthstone pack #2", "Epic", 65);
-            storeItems.Add(storeItem3);
+            storeItems.Add(new StoreItem("Swift Spectral Tiger", "Legendary", 100));
+            storeItems.Add(new StoreItem("Hearthstone pack #1", "Rare", 50));
+            storeItems.Add(new StoreItem("Hearthstone pack #2", "Epic", 65));
 
 
 			//Create StoreItems
