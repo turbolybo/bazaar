@@ -28,33 +28,31 @@ namespace Bazaar
             */
 
             // Create items
-            StoreItem spectral = new StoreItem("Swift Spectral Tiger", "Legendary", 50);
-            StoreItem test = new StoreItem("TCG", "Epic", 10);
-			StoreItem test2 = new StoreItem("Dildo", "Rare", 5);
+            StoreFactory store1 = new StoreFactory("DildoShop", 20);
 			//spectral.printItemHelp();
-                
-
+            
             #region OldBuy
 
             // Create customers
-            Customer lyband = new Customer("Lyband", 50);
+            Customer lyband = new Customer("Lyband", 100);
             customers.Add(lyband);
-			Customer santom = new Customer("Santom", 50);
+			Customer santom = new Customer("Santom", 500);
             customers.Add(santom);
-            Customer lanalf = new Customer("lanalf", 100);
+            Customer lanalf = new Customer("lanalf", 10000);
             customers.Add(lanalf);
 
             #endregion
 
-            List<Customer> shuffledCustomers = ShuffleCustomerList(customers);
+            //List<Customer> shuffledCustomers = ShuffleCustomerList(customers);
             #region Multithread test
             // One transaction per person
             // Initializing transaction threads and starting.
+            for (int i = 0; i < store1.allObjects.Count; i++)
+            {
+                DoTransactions(customers, store1.allObjects[i]);
+            }
 
             // Every customer will try to buy spectral
-            DoTransactions(shuffledCustomers, spectral);
-            shuffledCustomers = ShuffleCustomerList(shuffledCustomers);
-            //DoTransactions(shuffledCustomers, test);
 
             #endregion
 

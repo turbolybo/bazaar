@@ -20,7 +20,7 @@ namespace Bazaar
 		Random randItem = new Random();
         			
 		// List of all StoreItems
-		List<StoreItem> allObjects = new List<StoreItem>();
+		public List<StoreItem> allObjects = new List<StoreItem>();
         #endregion
 
         public StoreFactory(string name, int maxItems)
@@ -42,7 +42,7 @@ namespace Bazaar
             {
                 int thisRandom = randItem.Next(storeItems.Count);
                 Console.Write(StoreName + " has put ");
-                allObjects.Add(new StoreItem(storeItems[i]));
+                allObjects.Add(new StoreItem(storeItems[thisRandom]));
             }
         }
     }	

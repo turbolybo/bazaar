@@ -26,12 +26,12 @@ namespace Bazaar
 		}
         public StoreItem(StoreItem storeItem)
         {
+            StoreItemName = storeItem.StoreItemName;
+            StoreItemRarity = storeItem.StoreItemRarity;
+            StoreItemPrice = storeItem.StoreItemPrice;
+            StoreItemSold = false;
 
-                StoreItemName = storeItem.StoreItemName;
-                StoreItemRarity = storeItem.StoreItemRarity;
-                StoreItemPrice = storeItem.StoreItemPrice;
-                StoreItemSold = false;
-
+            ForSale();
         }
 
 		public string ToColor()
