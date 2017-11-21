@@ -36,7 +36,7 @@ namespace Bazaar
 
 
 			//Create StoreItems
-			generateItems(storeItems);
+			generateItems(storeItems, maxItems);
 		}
 
 		// Makes new items and adds it to allObjects array.
@@ -50,9 +50,9 @@ namespace Bazaar
 			}
 		}
 
-        public void generateItems(List<StoreItem> storeItems)
+        public void generateItems(List<StoreItem> storeItems, int maxItems)
         {
-            for (int i = 0; i < storeItems.Count; ++i)
+            for (int i = 0; i < maxItems; ++i)
             {
                 int thisRandom = randItem.Next(storeItems.Count);
                 Console.Write(StoreName + " has put ");
