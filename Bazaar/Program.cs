@@ -14,7 +14,7 @@ namespace Bazaar
 
         private static Random rand = new Random();
         private static Thread[] threads = new Thread[20];
-        
+
 
         static void Main(string[] args)
 		{
@@ -29,14 +29,15 @@ namespace Bazaar
 
             // Create items
             StoreItem spectral = new StoreItem("Swift Spectral Tiger", "Legendary", 50);
-			StoreItem test = new StoreItem("TCG", "Epic", 10);
+            StoreItem test = new StoreItem("TCG", "Epic", 10);
 			StoreItem test2 = new StoreItem("Dildo", "Rare", 5);
-			spectral.printItemHelp();
+			//spectral.printItemHelp();
+                
 
             #region OldBuy
 
             // Create customers
-            Customer lyband = new Customer("Lyband", 0);
+            Customer lyband = new Customer("Lyband", 50);
             customers.Add(lyband);
 			Customer santom = new Customer("Santom", 50);
             customers.Add(santom);
@@ -53,11 +54,11 @@ namespace Bazaar
             // Every customer will try to buy spectral
             DoTransactions(shuffledCustomers, spectral);
             shuffledCustomers = ShuffleCustomerList(shuffledCustomers);
-            DoTransactions(shuffledCustomers, test);
+            //DoTransactions(shuffledCustomers, test);
 
             #endregion
 
-            Console.Write("\nPress any key to continue...");
+            //Console.Write("\nPress any key to continue...");
             Console.ReadKey();
 		}
 
@@ -80,14 +81,18 @@ namespace Bazaar
         {
             for (int i = 0; i < customers.Count; ++i)
             {
-                Thread t = new Thread(() => customers.ElementAt(i).BuyItem(storeItem));
-                threads[i] = t;
+                int index = i;
+                //Thread t = new Thread(() => customers.ElementAt(index).BuyItem(storeItem));
+                Thread t = new Thread(new ParameterizedThreadStart(customers[i].Buy));
+                threads[index] = t;
 
                 // Used for debug
                 //Console.Write("Person: " + customers[i].CustomerName + " index: " + i + "\n");
-                threads[i].Start();
-                Thread.Sleep(1000);
 
+            }
+            for (int j = 0; j < 3; j++)
+            {
+                threads[j].Start(storeItem);
             }
         }
 	}

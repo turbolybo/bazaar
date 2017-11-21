@@ -12,7 +12,10 @@ namespace Bazaar
 		public string StoreItemRarity { get; private set; }
 		public int StoreItemPrice{ get; private set; }
 		public bool StoreItemSold { get; set; }
-		public StoreItem(string name, string rarity, int price)
+        
+        private readonly Object _itemLock = new Object();
+
+        public StoreItem(string name, string rarity, int price)
 		{
 			StoreItemName = name;
 			StoreItemRarity = rarity;
@@ -23,10 +26,12 @@ namespace Bazaar
 		}
         public StoreItem(StoreItem storeItem)
         {
-            StoreItemName = storeItem.StoreItemName;
-            StoreItemRarity = storeItem.StoreItemRarity;
-            StoreItemPrice = storeItem.StoreItemPrice;
-            StoreItemSold = false;
+
+                StoreItemName = storeItem.StoreItemName;
+                StoreItemRarity = storeItem.StoreItemRarity;
+                StoreItemPrice = storeItem.StoreItemPrice;
+                StoreItemSold = false;
+
         }
 
 		public string ToColor()
@@ -68,10 +73,10 @@ namespace Bazaar
 
 		public void ForSale()
 		{
-			Console.Write("[" + ToColor() + "]");
-			Console.ResetColor();
-			Console.WriteLine(" was put up for sale for $" + StoreItemPrice);
-		}
+            Console.Write("[" + ToColor() + "]");
+            Console.ResetColor();
+            Console.WriteLine(" was put up for sale for $" + StoreItemPrice);
+        }
 	}
 	
 }
