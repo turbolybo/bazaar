@@ -35,7 +35,7 @@ namespace Bazaar
             #region OldBuy
 
             // Create customers
-            Customer lyband = new Customer("Lyband", 100);
+            Customer lyband = new Customer("Lyband", 0);
             customers.Add(lyband);
 			Customer santom = new Customer("Santom", 100);
             customers.Add(santom);
