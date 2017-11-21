@@ -21,6 +21,13 @@ namespace Bazaar
 
 			ForSale();
 		}
+        public StoreItem(StoreItem storeItem)
+        {
+            StoreItemName = storeItem.StoreItemName;
+            StoreItemRarity = storeItem.StoreItemRarity;
+            StoreItemPrice = storeItem.StoreItemPrice;
+            StoreItemSold = false;
+        }
 
 		public string ToColor()
 		{
