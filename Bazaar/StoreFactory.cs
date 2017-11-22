@@ -36,16 +36,6 @@ namespace Bazaar
 			generateItems(storeItems, maxItems);
 		}
 
-        public void generateItems2(List<StoreItem> storeItems, int maxItems)
-        {
-            for (int i = 0; i < maxItems; ++i)
-            {
-                int thisRandom = rand.Next(storeItems.Count);
-                Console.Write(StoreName + " has put ");
-                allObjects.Add(new StoreItem(storeItems[thisRandom]));
-            }
-        }
-
         public void generateItems(List<StoreItem> storeItems, int maxItems)
         {
             int totalProbability = getTotalProbability(storeItems);
