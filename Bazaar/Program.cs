@@ -18,8 +18,6 @@ namespace Bazaar
 
         static void Main(string[] args)
 		{
-            
-			Store tcg = new Store();
             List<Customer> customers = new List<Customer>();
             /* What we want it to look like
             tcg.AddItem("Swift Spectral Tiger", "Legendary", 75);
@@ -28,7 +26,7 @@ namespace Bazaar
             */
 
             // Create items
-            StoreFactory store1 = new StoreFactory("DildoShop", 20);
+            Store store1 = new Store("DildoShop", 20);
 			//spectral.printItemHelp();
             
             #region OldBuy
