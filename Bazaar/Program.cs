@@ -88,7 +88,7 @@ namespace Bazaar
                 //Console.Write("Person: " + customers[i].CustomerName + " index: " + i + "\n");
 
             }
-            for (int j = 0; j < 1; j++)
+            for (int j = 0; j < customers.Count; j++)
             {
                 threads[j].Start(storeItem);
             }
