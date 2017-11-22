@@ -28,7 +28,7 @@ namespace Bazaar
             // Creating 3 customers and adding them to a customer list.
             List<Customer> customers = new List<Customer>();
 
-            Customer santom = new Customer("Santom", 1000);
+            Customer santom = new Customer("Santom", 100);
             customers.Add(santom);
             Customer lyband = new Customer("Lyband", 1000);
             customers.Add(lyband);
