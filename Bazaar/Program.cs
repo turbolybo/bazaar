@@ -12,7 +12,8 @@ namespace Bazaar
 	class Program
 	{
         // Initializing thread array. 3 customers = 3 threads.
-        private static Thread[] threads = new Thread[3];
+        private static Random rand = new Random();
+        private static Thread[] threads = new Thread[100];
 
 
         static void Main(string[] args)
@@ -27,11 +28,11 @@ namespace Bazaar
             // Creating 3 customers and adding them to a customer list.
             List<Customer> customers = new List<Customer>();
 
-            Customer santom = new Customer("Santom", 5000);
+            Customer santom = new Customer("Santom", 1000);
             customers.Add(santom);
             Customer lyband = new Customer("Lyband", 1000);
             customers.Add(lyband);
-            Customer lanalf = new Customer("lanalf", 10000);
+            Customer lanalf = new Customer("lanalf", 1000);
             customers.Add(lanalf);
 
             #endregion
@@ -39,16 +40,22 @@ namespace Bazaar
             #region Multithreading
 
             // Initializing and starting transaction threads for TCG shop
-            for (int i = 0; i < stores.tcg.allObjects.Count; i++)
+            for (int i = 0; i < 10; i++)
             {
+                
+                stores.tcg.generateItems(stores.tcg.storeItems, 1);
+                Thread.Sleep(1000);
                 DoTransactions(customers, stores.tcg.allObjects[i]);
+                
+                Thread.Sleep(500);
             }
 
             // Initializing and starting transaction threads for HS shop
+            /*
             for (int j = 0; j < stores.hs.allObjects.Count; j++)
 			{
 				DoTransactions(customers, stores.hs.allObjects[j]);
-			}
+			}*/
 
             #endregion
 
@@ -60,23 +67,26 @@ namespace Bazaar
             Console.ReadKey();
 		}
 
+        // Multithreading function. Performs the transactions.
         private static void DoTransactions(List<Customer> customers, StoreItem storeItem)
         {
+
+            
             for (int i = 0; i < customers.Count; ++i)
             {
-                int index = i;
-                //Thread t = new Thread(() => customers.ElementAt(index).BuyItem(storeItem));
-                Thread t = new Thread(new ParameterizedThreadStart(customers[i].Buy));
-                threads[index] = t;
+                Thread t = new Thread(new ParameterizedThreadStart(customers[i].BuyItem));
+                threads[i] = t;
 
-                // Used for debug
-                //Console.Write("Person: " + customers[i].CustomerName + " index: " + i + "\n");
 
             }
             for (int j = 0; j < customers.Count; j++)
             {
+                //Thread.Sleep(500);
+
                 threads[j].Start(storeItem);
             }
+
+            
 
         }
 	}
