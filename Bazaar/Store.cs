@@ -12,6 +12,7 @@ namespace Bazaar
 		#region variables
 
 		public string StoreName { get; private set; }
+		public int MaxItems { get; private set; }
 
 		// Lists with names, rarity and price of items
 		List<string> allNames = new List<string>();
@@ -21,19 +22,26 @@ namespace Bazaar
 
 		// List of all StoreItems
 		public List<StoreItem> allObjects = new List<StoreItem>();
+		public List<StoreItem> storeItems = new List<StoreItem>();
 		#endregion
 
 		public Store(string name, int maxItems)
 		{
+			MaxItems = maxItems;
 			StoreName = name;
-			List<StoreItem> storeItems = new List<StoreItem>();
-			storeItems.Add(new StoreItem("Swift Spectral Tiger", "Legendary", 100, 10));
-			storeItems.Add(new StoreItem("Hearthstone pack #1", "Rare", 50, 60));
-			storeItems.Add(new StoreItem("Hearthstone pack #2", "Epic", 65, 30));
+			//storeItems.Add(new StoreItem("Swift Spectral Tiger", "Legendary", 100, 10));
+			//storeItems.Add(new StoreItem("Hearthstone pack #1", "Rare", 50, 60));
+			//storeItems.Add(new StoreItem("Hearthstone pack #2", "Epic", 65, 30));
 
+			//addItem("Test", "Legendary", 10, 100);
 
 			//Create StoreItems
-			generateItems(storeItems, maxItems);
+			//generateItems(storeItems, maxItems);
+		}
+
+		public void addItem(string name, string rarity, int price, int probability)
+		{
+			storeItems.Add(new StoreItem(name, rarity, price, probability));
 		}
 
 		public void generateItems(List<StoreItem> storeItems, int maxItems)
