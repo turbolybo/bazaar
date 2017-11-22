@@ -27,15 +27,15 @@ namespace Bazaar
 
 			// Create items
 			StoreFactory stores = new StoreFactory();
-			//spectral.printItemHelp();
-            
+            //spectral.printItemHelp();
+
             #region OldBuy
 
             // Create customers
-            Customer lyband = new Customer("Lyband", 100);
-            customers.Add(lyband);
-			Customer santom = new Customer("Santom", 500);
+            Customer santom = new Customer("Santom", 5000);
             customers.Add(santom);
+            Customer lyband = new Customer("Lyband", 1000);
+            customers.Add(lyband);
             Customer lanalf = new Customer("lanalf", 10000);
             customers.Add(lanalf);
 
@@ -58,8 +58,8 @@ namespace Bazaar
             // Every customer will try to buy spectral
 
             #endregion
-
-            //Console.Write("\nPress any key to continue...");
+            System.Threading.Thread.Sleep(50);
+            Console.Write("\nPress any key to continue...");
             Console.ReadKey();
 		}
 
