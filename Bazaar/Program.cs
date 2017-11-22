@@ -28,16 +28,16 @@ namespace Bazaar
             */
 
             // Create items
-            StoreFactory store1 = new StoreFactory("DildoShop", 100);
+            StoreFactory store1 = new StoreFactory("DildoShop", 20);
 			//spectral.printItemHelp();
             
             #region OldBuy
 
             // Create customers
             Customer lyband = new Customer("Lyband", 100);
-            customers.Add(lyband);
+            //customers.Add(lyband);
 			Customer santom = new Customer("Santom", 500);
-            customers.Add(santom);
+            //customers.Add(santom);
             Customer lanalf = new Customer("lanalf", 10000);
             customers.Add(lanalf);
 
@@ -88,7 +88,7 @@ namespace Bazaar
                 //Console.Write("Person: " + customers[i].CustomerName + " index: " + i + "\n");
 
             }
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 1; j++)
             {
                 threads[j].Start(storeItem);
             }

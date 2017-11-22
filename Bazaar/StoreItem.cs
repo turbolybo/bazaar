@@ -31,6 +31,7 @@ namespace Bazaar
             StoreItemName = storeItem.StoreItemName;
             StoreItemRarity = storeItem.StoreItemRarity;
             StoreItemPrice = storeItem.StoreItemPrice;
+            StoreItemProbability = storeItem.StoreItemProbability;
             StoreItemSold = false;
 
             ForSale();

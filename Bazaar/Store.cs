@@ -10,9 +10,9 @@ namespace Bazaar
 	{
 		public string StoreName { get; private set; }		
 
-		public StoreItem AddItem(string name, string rarity, int price)
+		public StoreItem AddItem(string name, string rarity, int price, int probability)
 		{
-			StoreItem thisItem = new StoreItem(name, rarity, price);
+			StoreItem thisItem = new StoreItem(name, rarity, price, probability);
 			return thisItem;
 		}
 	}
