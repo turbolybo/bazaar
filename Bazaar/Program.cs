@@ -11,27 +11,22 @@ namespace Bazaar
 {
 	class Program
 	{
-
-        private static Random rand = new Random();
-        private static Thread[] threads = new Thread[20];
+        // Initializing thread array. 3 customers = 3 threads.
+        private static Thread[] threads = new Thread[3];
 
 
         static void Main(string[] args)
 		{
-            List<Customer> customers = new List<Customer>();
-			/* What we want it to look like
-            tcg.AddItem("Swift Spectral Tiger", "Legendary", 75);
-            tcg.AddItem("Rare Card", "Rare", 15);
-            tcg.AddItem("Test", "Epic", 5);
-            */
 
-			// Create items
+
+			// Creating stores using a StoreFactory
 			StoreFactory stores = new StoreFactory();
-            //spectral.printItemHelp();
 
-            #region OldBuy
+            #region Initializing customers
 
-            // Create customers
+            // Creating 3 customers and adding them to a customer list.
+            List<Customer> customers = new List<Customer>();
+
             Customer santom = new Customer("Santom", 5000);
             customers.Add(santom);
             Customer lyband = new Customer("Lyband", 1000);
@@ -41,42 +36,29 @@ namespace Bazaar
 
             #endregion
 
-            //List<Customer> shuffledCustomers = ShuffleCustomerList(customers);
-            #region Multithread test
-            // One transaction per person
-            // Initializing transaction threads and starting.
+            #region Multithreading
+
+            // Initializing and starting transaction threads for TCG shop
             for (int i = 0; i < stores.tcg.allObjects.Count; i++)
             {
                 DoTransactions(customers, stores.tcg.allObjects[i]);
             }
 
-			for (int j = 0; j < stores.hs.allObjects.Count; j++)
+            // Initializing and starting transaction threads for HS shop
+            for (int j = 0; j < stores.hs.allObjects.Count; j++)
 			{
 				DoTransactions(customers, stores.hs.allObjects[j]);
 			}
 
-            // Every customer will try to buy spectral
-
             #endregion
+
+            // Mainthread delay. Sleeping the code before "Press any key..." appears.
             System.Threading.Thread.Sleep(50);
+
+            // Pause
             Console.Write("\nPress any key to continue...");
             Console.ReadKey();
 		}
-
-        // Function that shuffles a List of customers. Used for testing and proving threads.
-        private static List<Customer> ShuffleCustomerList(List<Customer> list)
-        {
-            int size = list.Count;
-            List<Customer> result = new List<Customer>();
-
-            for (int i = 0; i < size; i++)
-            {
-                int r = rand.Next(size-i);
-                result.Add(list[r]);
-                list.Remove(list[r]);
-            }
-            return result;
-        }
 
         private static void DoTransactions(List<Customer> customers, StoreItem storeItem)
         {
@@ -95,6 +77,7 @@ namespace Bazaar
             {
                 threads[j].Start(storeItem);
             }
+
         }
 	}
 }

@@ -13,9 +13,10 @@ namespace Bazaar
 
 		public string StoreName { get; private set; }
 		public int MaxItems { get; private set; }
+        public double StoreBalance { get; set; }
 
-		// Lists with names, rarity and price of items
-		List<string> allNames = new List<string>();
+        // Lists with names, rarity and price of items
+        List<string> allNames = new List<string>();
 		List<string> allRarities = new List<string>();
 		List<int> allPrices = new List<int>();
 		Random rand = new Random();
@@ -29,6 +30,7 @@ namespace Bazaar
 		{
 			MaxItems = maxItems;
 			StoreName = name;
+            StoreBalance = 0;
 			//storeItems.Add(new StoreItem("Swift Spectral Tiger", "Legendary", 100, 10));
 			//storeItems.Add(new StoreItem("Hearthstone pack #1", "Rare", 50, 60));
 			//storeItems.Add(new StoreItem("Hearthstone pack #2", "Epic", 65, 30));
@@ -69,6 +71,17 @@ namespace Bazaar
 
 			}
 		}
+
+        public void UpdateStoreBalance(StoreItem item)
+        {
+
+            if (item.StoreItemSold == true)
+            {
+                StoreBalance += item.StoreItemPrice;
+                Console.Write(StoreName + "'s balance is $" + StoreBalance + "\n");
+            }
+
+        }
 
 		int getTotalProbability(List<StoreItem> storeItem)
 		{
