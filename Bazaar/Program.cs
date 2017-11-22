@@ -19,14 +19,14 @@ namespace Bazaar
         static void Main(string[] args)
 		{
             List<Customer> customers = new List<Customer>();
-            /* What we want it to look like
+			/* What we want it to look like
             tcg.AddItem("Swift Spectral Tiger", "Legendary", 75);
             tcg.AddItem("Rare Card", "Rare", 15);
             tcg.AddItem("Test", "Epic", 5);
             */
 
-            // Create items
-            Store store1 = new Store("DildoShop", 20);
+			// Create items
+			StoreFactory stores = new StoreFactory();
 			//spectral.printItemHelp();
             
             #region OldBuy
@@ -45,10 +45,15 @@ namespace Bazaar
             #region Multithread test
             // One transaction per person
             // Initializing transaction threads and starting.
-            for (int i = 0; i < store1.allObjects.Count; i++)
+            for (int i = 0; i < stores.tcg.allObjects.Count; i++)
             {
-                DoTransactions(customers, store1.allObjects[i]);
+                DoTransactions(customers, stores.tcg.allObjects[i]);
             }
+
+			for (int j = 0; j < stores.hs.allObjects.Count; j++)
+			{
+				DoTransactions(customers, stores.hs.allObjects[j]);
+			}
 
             // Every customer will try to buy spectral
 
