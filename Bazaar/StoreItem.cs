@@ -22,9 +22,7 @@ namespace Bazaar
 			StoreItemRarity = rarity;
 			StoreItemPrice = price;
             StoreItemProbability = probability;
-			StoreItemSold = false;
-
-			ForSale();
+            StoreItemSold = false;
 		}
         public StoreItem(StoreItem storeItem)
         {

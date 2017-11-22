@@ -35,9 +35,9 @@ namespace Bazaar
 
             // Create customers
             Customer lyband = new Customer("Lyband", 100);
-            //customers.Add(lyband);
+            customers.Add(lyband);
 			Customer santom = new Customer("Santom", 500);
-            //customers.Add(santom);
+            customers.Add(santom);
             Customer lanalf = new Customer("lanalf", 10000);
             customers.Add(lanalf);
 
