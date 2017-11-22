@@ -28,7 +28,7 @@ namespace Bazaar
             */
 
             // Create items
-            StoreFactory store1 = new StoreFactory("DildoShop", 20);
+            StoreFactory store1 = new StoreFactory("DildoShop", 100);
 			//spectral.printItemHelp();
             
             #region OldBuy

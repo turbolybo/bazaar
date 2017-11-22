@@ -11,15 +11,17 @@ namespace Bazaar
 		public string StoreItemName { get; private set; }
 		public string StoreItemRarity { get; private set; }
 		public int StoreItemPrice{ get; private set; }
-		public bool StoreItemSold { get; set; }
+        public int StoreItemProbability { get; set; }
+        public bool StoreItemSold { get; set; }
         
         private readonly Object _itemLock = new Object();
 
-        public StoreItem(string name, string rarity, int price)
+        public StoreItem(string name, string rarity, int price, int probability)
 		{
 			StoreItemName = name;
 			StoreItemRarity = rarity;
 			StoreItemPrice = price;
+            StoreItemProbability = probability;
 			StoreItemSold = false;
 
 			ForSale();
