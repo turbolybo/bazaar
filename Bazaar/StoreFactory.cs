@@ -12,8 +12,7 @@ namespace Bazaar
 		public Store tcg = new Store("TCG Shop", 0);
 		
 		public Store hs = new Store("HS Shop", 0);
-
-        public double tcgBalance { get; set; }
+        
         public StoreFactory()
 		{
 
@@ -23,7 +22,6 @@ namespace Bazaar
 			tcg.addItem("Fires of Outland", "Epic", 25, 20);
 			tcg.addItem("Twilight of the Dragons", "Rare", 15, 25);
 			tcg.addItem("Thrones of the Tides", "Rare", 15, 25);
-			tcg.generateItems(tcg.storeItems, tcg.MaxItems);
 
 
 			// Adding different card packs to HeartSthone Shop
@@ -31,7 +29,6 @@ namespace Bazaar
 			hs.addItem("Mean Streets of Gadgetzan", "Epic", 10, 30);
 			hs.addItem("Journey to Un'Goro", "Legendary", 25, 10);
 			hs.addItem("Knights of the Frozen Throne", "Legendary", 25, 10);
-			hs.generateItems(hs.storeItems, hs.MaxItems);
 		}
 	}
 }
