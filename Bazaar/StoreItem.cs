@@ -4,7 +4,7 @@ namespace Bazaar
 {
 	class StoreItem
 	{
-		#region Properties and variables
+		#region Properties
 
 		//Properties
 		public string StoreItemName { get; private set; }
@@ -13,11 +13,10 @@ namespace Bazaar
         public int StoreItemProbability { get; set; }
         public bool StoreItemSold { get; set; }
         
-		// For locking thread.
-        private readonly Object _itemLock = new Object();
 		#endregion
 
 		#region Constructors
+        // Constructor with manual input
 		public StoreItem(string name, string rarity, int price, int probability)
 		{
 			StoreItemName = name;
@@ -26,6 +25,7 @@ namespace Bazaar
             StoreItemProbability = probability;
             StoreItemSold = false;
 		}
+        // Constructor with a StoreItem as input
         public StoreItem(StoreItem storeItem)
         {
             StoreItemName = storeItem.StoreItemName;
