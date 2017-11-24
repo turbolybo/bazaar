@@ -21,15 +21,10 @@ namespace Bazaar
 
 		public Handler()
 		{
-			// Creating 3 customers and adding them to a customer list.
-			Customer santom = new Customer("Santom", 100);
-			Customer lyband = new Customer("Lyband", 1000);
-			Customer lanalf = new Customer("lanalf", 1000);
-
 			// Adding customers to list
-			customers.Add(santom);
-			customers.Add(lanalf);
-			customers.Add(lyband);
+			customers.Add(new Customer("Santom", 100));
+			customers.Add(new Customer("Lyband", 1000));
+			customers.Add(new Customer("lanalf", 1000));
 		}
 		public void Start()
 		{
