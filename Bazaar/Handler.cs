@@ -7,12 +7,11 @@ namespace Bazaar
 	class Handler
 	{
         // Initializing thread array. 3 customers = 3 threads.
-        private static Random rand = new Random();
-        private static Thread[] threads = new Thread[100];
+        private static Thread[] threads = new Thread[3];
 
-		// Creating stores using a StoreFactory
+		// Creating stores using a StoreFactory and a list of customers
 		private List<Customer> customers = new List<Customer>();
-		private StoreFactory stores = new StoreFactory();
+		private StoreFactory stores = new StoreFactory();	
 
 		public Handler()
 		{
