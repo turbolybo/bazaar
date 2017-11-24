@@ -7,13 +7,10 @@ namespace Bazaar
 	{
 		#region Variables and properties
 
-		//Name of store 
+		// Name of store 
 		public string StoreName { get; private set; }
-
-        // Lists with names, rarity and price of items
-        List<string> allNames = new List<string>();
-		List<string> allRarities = new List<string>();
-		List<int> allPrices = new List<int>();
+        
+        // Instantiates Random class used in generating Item.
 		Random rand = new Random();
 
 		// List of all StoreItems
