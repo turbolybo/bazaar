@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bazaar
 {
 	class Store
 	{
-		#region variables
+		#region Variables and properties
 
+		//Name of store 
 		public string StoreName { get; private set; }
-        public double StoreBalance { get; set; }
 
         // Lists with names, rarity and price of items
         List<string> allNames = new List<string>();
@@ -25,25 +21,34 @@ namespace Bazaar
 		public List<StoreItem> storeItems = new List<StoreItem>();
 		#endregion
 
+		#region Constructor
 		public Store(string name)
 		{
 			StoreName = name;
-            StoreBalance = 0;
-			//storeItems.Add(new StoreItem("Swift Spectral Tiger", "Legendary", 100, 10));
-			//storeItems.Add(new StoreItem("Hearthstone pack #1", "Rare", 50, 60));
-			//storeItems.Add(new StoreItem("Hearthstone pack #2", "Epic", 65, 30));
-
-			//addItem("Test", "Legendary", 10, 100);
-
-			//Create StoreItems
-			//generateItems(storeItems, maxItems);
 		}
+		#endregion
 
+		/// <summary>
+		/// Adds item to store list so it can pick between them when generating items.
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="rarity"></param>
+		/// <param name="price"></param>
+		/// <param name="probability"></param>
+		#region Add item to list
 		public void addItem(string name, string rarity, int price, int probability)
 		{
 			storeItems.Add(new StoreItem(name, rarity, price, probability));
 		}
+		#endregion
 
+		/// <summary>
+		/// Generate X (maxItems) items based on the items in list. 
+		/// Uses probability to generate item.
+		/// </summary>
+		/// <param name="storeItems"></param>
+		/// <param name="maxItems"></param>
+		#region Generate items from list
 		public void generateItems(List<StoreItem> storeItems, int maxItems)
 		{
 			int totalProbability = getTotalProbability(storeItems);
@@ -58,29 +63,22 @@ namespace Bazaar
 					probabilityChecker -= storeItems[currentItem].StoreItemProbability;
 					if (randNum > probabilityChecker)
 					{
-
 						Console.Write(StoreName + " has put ");
 						allObjects.Add(new StoreItem(storeItems[currentItem]));
 						break;
 					}
 					currentItem--;
 				}
-
-
 			}
 		}
+		#endregion
 
-        public void UpdateStoreBalance(StoreItem item)
-        {
-
-            if (item.StoreItemSold == true)
-            {
-                StoreBalance += item.StoreItemPrice;
-                Console.Write(StoreName + "'s balance is $" + StoreBalance + "\n");
-            }
-
-        }
-
+		/// <summary>
+		/// Get the total probability for all items in list
+		/// </summary>
+		/// <param name="storeItem"></param>
+		/// <returns></returns>
+		#region Get total probability
 		int getTotalProbability(List<StoreItem> storeItem)
 		{
 			int result = 0;
@@ -90,5 +88,6 @@ namespace Bazaar
 			}
 			return result;
 		}
+		#endregion
 	}
 }
