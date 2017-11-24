@@ -33,7 +33,7 @@ namespace Bazaar
 		/// <param name="price"></param>
 		/// <param name="probability"></param>
 		#region Add item to list
-		public void addItem(string name, string rarity, int price, int probability)
+		public void AddItem(string name, string rarity, int price, int probability)
 		{
 			storeItems.Add(new StoreItem(name, rarity, price, probability));
 		}
@@ -46,7 +46,7 @@ namespace Bazaar
 		/// <param name="storeItems"></param>
 		/// <param name="maxItems"></param>
 		#region Generate items from list
-		public void generateItems(List<StoreItem> storeItems, int maxItems)
+		public void GenerateItems(List<StoreItem> storeItems, int maxItems)
 		{
 			int totalProbability = getTotalProbability(storeItems);
 

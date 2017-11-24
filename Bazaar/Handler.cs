@@ -44,14 +44,14 @@ namespace Bazaar
             {
 				// TCG shop
                 Console.Write("\n");
-                stores.tcg.generateItems(stores.tcg.storeItems, 1);
+                stores.tcg.GenerateItems(stores.tcg.storeItems, 1);
                 Thread.Sleep(50);
                 DoTransactions(customers, stores.tcg.allObjects[i]);
                 Thread.Sleep(1500);
 
 				// Hearthstone shop
                 Console.Write("\n");
-                stores.hs.generateItems(stores.hs.storeItems, 1);
+                stores.hs.GenerateItems(stores.hs.storeItems, 1);
                 Thread.Sleep(50);
                 DoTransactions(customers, stores.hs.allObjects[i]);
                 Thread.Sleep(1500);
@@ -65,7 +65,7 @@ namespace Bazaar
 		#region Sleep
 		public void Sleep()
 		{
-			System.Threading.Thread.Sleep(50);
+			Thread.Sleep(50);
 			Console.Write("\nPress any key to continue...");
 			Console.ReadKey();
 		}
@@ -82,7 +82,7 @@ namespace Bazaar
         {
             for (int i = 0; i < customers.Count; ++i)
             {
-                Thread t = new Thread(new ParameterizedThreadStart(customers[i].BuyItem));
+                Thread t = new Thread(customers[i].BuyItem);
                 threads[i] = t;
             }
             for (int j = 0; j < customers.Count; j++)
