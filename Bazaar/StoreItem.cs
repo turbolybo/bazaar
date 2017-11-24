@@ -1,22 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bazaar
 {
 	class StoreItem
 	{
+		#region Properties and variables
+
+		//Properties
 		public string StoreItemName { get; private set; }
 		public string StoreItemRarity { get; private set; }
 		public int StoreItemPrice{ get; private set; }
         public int StoreItemProbability { get; set; }
         public bool StoreItemSold { get; set; }
         
+		// For locking thread.
         private readonly Object _itemLock = new Object();
+		#endregion
 
-        public StoreItem(string name, string rarity, int price, int probability)
+		#region Constructors
+		public StoreItem(string name, string rarity, int price, int probability)
 		{
 			StoreItemName = name;
 			StoreItemRarity = rarity;
@@ -34,7 +36,13 @@ namespace Bazaar
 
             ForSale();
         }
+		#endregion
 
+		/// <summary>
+		/// Prints itemname with correct color based on rarity.
+		/// </summary>
+		/// <returns>StoreItemName</returns>
+		#region Prints to rarity color
 		public string ToColor()
 		{
 			if (StoreItemRarity == "Legendary")
@@ -52,32 +60,18 @@ namespace Bazaar
 			}
 			return StoreItemName;
 		}
-		public void printItemHelp()
-		{
-			Console.WriteLine("\nItem rarities: ");
+		#endregion
 
-			//Legendary
-			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine("[Legendary]");
-			Console.ResetColor();
-
-			//Epic
-			Console.ForegroundColor = ConsoleColor.Magenta;
-			Console.WriteLine("[Epic]");
-			Console.ResetColor();
-
-			//Rare
-			Console.ForegroundColor = ConsoleColor.DarkCyan;
-			Console.WriteLine("[Rare]");
-			Console.ResetColor();
-		}
-
+		/// <summary>
+		/// Prints itemname with ToColor(), up for sale + price of item
+		/// </summary>
+		#region Prints entire string with rarity color
 		public void ForSale()
 		{
             Console.Write("[" + ToColor() + "]");
             Console.ResetColor();
             Console.WriteLine(" was put up for sale for $" + StoreItemPrice);
         }
+		#endregion
 	}
-	
 }
