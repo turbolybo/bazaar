@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bazaar
+﻿namespace Bazaar
 {
 	class Program
 	{
+		/// <summary>
+		/// Creates a handler objects and starts the stores.
+		/// </summary>
+		/// <param name="args"></param>
 		static void Main(string[] args)
 		{
 			Handler bazaar = new Handler();
