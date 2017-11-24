@@ -12,7 +12,6 @@ namespace Bazaar
 		#region variables
 
 		public string StoreName { get; private set; }
-		public int MaxItems { get; private set; }
         public double StoreBalance { get; set; }
 
         // Lists with names, rarity and price of items
@@ -26,9 +25,8 @@ namespace Bazaar
 		public List<StoreItem> storeItems = new List<StoreItem>();
 		#endregion
 
-		public Store(string name, int maxItems)
+		public Store(string name)
 		{
-			MaxItems = maxItems;
 			StoreName = name;
             StoreBalance = 0;
 			//storeItems.Add(new StoreItem("Swift Spectral Tiger", "Legendary", 100, 10));

@@ -10,8 +10,8 @@ namespace Bazaar
 	class StoreFactory
 	{
 		// Adding stores
-		public Store tcg = new Store("TCG Shop", 0);
-		public Store hs = new Store("HS Shop", 0);
+		public Store tcg = new Store("TCG Shop");
+		public Store hs = new Store("HS Shop");
 
 		/// <summary>
 		/// Adding items to the shops when making a StoreFactory object.
