@@ -9,13 +9,16 @@ namespace Bazaar
 {
 	class StoreFactory
 	{
+		// Adding stores
 		public Store tcg = new Store("TCG Shop", 0);
-		
 		public Store hs = new Store("HS Shop", 0);
-        
-        public StoreFactory()
-		{
 
+		/// <summary>
+		/// Adding items to the shops when making a StoreFactory object.
+		/// </summary>
+		#region Adding items for sale
+		public StoreFactory()
+		{
 			// Adding different TCG packs to TCG Shop
 			tcg.addItem("Heroes of Azeroth", "Legendary", 50, 10);
 			tcg.addItem("Dark Portal", "Epic", 25, 20);
@@ -30,5 +33,6 @@ namespace Bazaar
 			hs.addItem("Journey to Un'Goro", "Legendary", 25, 10);
 			hs.addItem("Knights of the Frozen Throne", "Legendary", 25, 10);
 		}
+		#endregion
 	}
 }
