@@ -4,22 +4,30 @@ namespace Bazaar
 {
 	class Customer
 	{
-        // Customer properties
+		#region Properties and variables
 		public string CustomerName { get; private set; }
 		public int CustomerBalance { get; private set; }
 
         // Lock object used for locking when multithreading.
         private static readonly Object _customerLock = new Object();
+		#endregion
 
-        // Constructor
-        public Customer(string name, int balance)
+		#region Constructor
+		public Customer(string name, int balance)
 		{
 			CustomerName = name;
 			CustomerBalance = balance;
 		}
+		#endregion
 
-        // Buy function that is run whith multithreading
-        public void BuyItem(object objitem)
+		/// <summary>
+		/// Customer purchases a StoreItem. Locks thread so no other customer is able to purchase. 
+		/// Checks if customer have enough money and that item is not already sold.
+		/// </summary>
+		/// <param name="objitem"></param>
+		#region BuyItem
+		// Buy function that is run whith multithreading
+		public void BuyItem(object objitem)
         {
 
             // Locks the function when in use.
@@ -57,5 +65,6 @@ namespace Bazaar
                 }
             }
         }
-    }
+		#endregion
+	}
 }
