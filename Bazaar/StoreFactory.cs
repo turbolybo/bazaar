@@ -9,9 +9,9 @@ namespace Bazaar
 {
 	class StoreFactory
 	{
-		public Store tcg = new Store("TCG Shop", 1);
+		public Store tcg = new Store("TCG Shop", 0);
 		
-		public Store hs = new Store("HS Shop", 20);
+		public Store hs = new Store("HS Shop", 0);
 
         public double tcgBalance { get; set; }
         public StoreFactory()

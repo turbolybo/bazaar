@@ -51,11 +51,15 @@ namespace Bazaar
             }
 
             // Initializing and starting transaction threads for HS shop
-            /*
-            for (int j = 0; j < stores.hs.allObjects.Count; j++)
-			{
-				DoTransactions(customers, stores.hs.allObjects[j]);
-			}*/
+            for (int i = 0; i < 10; i++)
+            {
+                
+                stores.hs.generateItems(stores.hs.storeItems, 1);
+                Thread.Sleep(1000);
+                DoTransactions(customers, stores.hs.allObjects[i]);
+                
+                Thread.Sleep(500);
+            }
 
             #endregion
 
